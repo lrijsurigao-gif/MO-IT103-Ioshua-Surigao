@@ -144,7 +144,7 @@ public class MOIT103IoshuaSurigao {
 
         btnPayroll.addActionListener(e -> cardLayout.show(rightPanel, "PAYROLL"));
 
-        submitBtn.addActionListener(e -> populateTable(empField.getText(), model));
+        submitBtn.addActionListener(e -> populateTable(empField.getText().trim(), model));
 
         clearBtn.addActionListener(e -> {
             model.setRowCount(0);
@@ -176,7 +176,7 @@ public class MOIT103IoshuaSurigao {
             String[] data;
 
             while ((data = reader.readNext()) != null) {
-                if (data[0].equals(inputEmpNum)) {
+                if (data[0].equals(inputEmpNum.trim())) {
                     employeeNum = data[0];
                     l_name = data[1];
                     f_name = data[2];
@@ -216,7 +216,7 @@ public class MOIT103IoshuaSurigao {
 
                     String[] data = line.split(",");
 
-                    if (data[0].equals(inputEmpNum)) {
+                    if (data[0].equals(inputEmpNum.trim())) {
 
                         String[] dateParts = data[3].split("/");
                         int month = Integer.parseInt(dateParts[0]);
